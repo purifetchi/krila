@@ -1,0 +1,61 @@
+body {
+  background-color: #EEF2FF;
+}
+
+* {
+  color: #000;
+  font-family: arial,helvetica,sans-serif;
+  font-size: 10pt;
+}
+
+#logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#boardname {
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+}
+
+#threadlabel {
+  vertical-align: top;
+}
+
+#threadcreate {
+  margin: 0 auto;
+  width: 300px;
+}
+
+#thumb {
+  display: block;
+  max-width:330px;
+  max-height:195px;
+  width: auto;
+  height: auto;
+  float:left;
+}
+
+#posttitle {
+  font-weight: bold;
+  color: blue;
+}
+
+#name {
+  font-weight: bold;
+  color: #789922;
+}
+
+#posttitle {
+  padding-left: 20px;
+}
+
+#body {
+  padding-left: 20px;
+}
+
+#greentext {
+  color: #789922;
+}
