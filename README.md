@@ -1,0 +1,2 @@
+# krila
+small imageboard script
