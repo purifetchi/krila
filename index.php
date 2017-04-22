@@ -5,7 +5,7 @@
   </head>
   <body>
     <div id="boardsection"></div>
-    <img src="static/logo.png" id="logo"><br>
+    <a href="javascript:location.reload();"><img src="static/logo.png" id="logo"></a><br>
     <div id="boardname">/krila/ - Anything & Everything</div><br>
     <div id="threadcreate">
       <form enctype="multipart/form-data"  action="post.php" method="post">
@@ -38,7 +38,7 @@
             $date = trim(preg_replace('/\s\s+/', ' ', str_replace('"', '', str_replace('date="','', $meta[1]))));
             $title = trim(preg_replace('/\s\s+/', ' ', str_replace('"','', str_replace('title="','', $meta[2]))));
             $include = trim(preg_replace('/\s\s+/', ' ', str_replace('"', '', str_replace('include="','', $meta[3]))));
-            echo '<div id="postcontainer">';
+            echo '<div id="main_postcontainer">';
             if(!empty($include))
             {
               echo '<span id="metadata">File: <a href="cdn/' . $include .'">' . $include .'</a></span><br>';

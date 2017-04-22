@@ -7,8 +7,7 @@
   </head>
   <body>
     <div id="boardsection"></div>
-    <img src="static/logo.png" id="logo"><br>
-    <div id="boardname">/krila/ - Anything & Everything</div><br>
+    <a href="index.php"><img src="static/logo.png" id="logo"></a><br>
     <div id="threadcreate">
       <form enctype="multipart/form-data"  action="postcomment.php" method="post">
         <input type="text" name="name" id="name"><label id="threadlabel" for="name"> Name</label><br>
@@ -24,6 +23,7 @@
       $thread = fopen($threadlink, "r");
 			$cnt = 0;
 			$pastinclude = 0;
+			$firsttitle = 0;
       while(!feof($thread)){
 				$cnt = $cnt + 1;
 				$line = fgets($thread);
@@ -34,11 +34,11 @@
 					{
 						if($pastinclude == 1)
 						{
-							echo '<br><br><br><br><br><br><br><br><br></div><hr>';
+							echo '<br><br><br><br><br><br><br><br><br></div>';
 						}
 						else
 						{
-								echo '<br></div><hr>';
+								echo '<br></div>';
 						}
 					}
 					$metainformation = str_replace("[", "", $line);
@@ -59,13 +59,18 @@
 					{
 						$pastinclude = 0;
 					}
-					echo '<span id="posttitle">' . $title .'    </span><span id="name">' . $name .'    </span><span id="date">' . $date .'   </span><br><br>';
+					echo '<span id="posttitle">' . $title .'    </span><span id="name">' . $name .'    </span><span id="date">' . $date .'   </span>     <br><br>';
         }
 				else if(substr($line, 0, 1) === "#")
 				{
 					if(substr(str_replace("#","",$line), 0 , 1) === ">")
 					{
 						echo '<span id="body"><span id="greentext">' . str_replace("#","",$line) . '</span></span><br>';
+						if($firsttitle === 0)
+						{
+							echo '<title>/krila/ - ' . str_replace("#","",$line) . '</title>';
+							$firsttitle = 1;
+						}
 					}
 					else
 					{
@@ -76,10 +81,20 @@
 							$arr[1] = '<span id="greentext">>' . $arr[1] . '</span>';
 							$res = implode(" ", $arr);
 							echo '<span id=body>' . $res . '</span><br>';
+							if($firsttitle === 0)
+							{
+								echo '<title>/krila/ - ' . $res . '</title>';
+								$firsttitle = 1;
+							}
 						}
 						else
 						{
 							echo '<span id="body">' . str_replace("#","",$line) . '</span><br>';
+							if($firsttitle === 0)
+							{
+								echo '<title>/krila/ - ' . str_replace("#","",$line) . '</title>';
+								$firsttitle = 1;
+							}
 						}
 					}
 				}

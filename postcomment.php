@@ -26,13 +26,19 @@
    else {
      echo 'kys off fam';
    }
-   if(isset($_POST['name']))
+   if(!isset($_POST['name']))
    {
      $name = "Anonymous";
    }
    else
    {
      $name = strip_tags($_POST['name']);
+     $arr = explode("#", $name, 2);
+     if(count($arr) > 1)
+     {
+       $tripcode = crypt(crypt($arr[1], crypt("..Kr1La", "PrE^^yQt5")), crypt(phpversion(), "FGDFGHgdfrtfdfgp[g=df-gdf0g3em8934]"));
+       $name = $arr[0] . "!" . $tripcode;
+     }
    }
    $title = strip_tags($_POST['title']);
    $body = strip_tags($_POST['body']);
