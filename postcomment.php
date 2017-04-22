@@ -36,7 +36,7 @@
      $arr = explode("#", $name, 2);
      if(count($arr) > 1)
      {
-       $tripcode = crypt(crypt($arr[1], crypt("..Kr1La", "PrE^^yQt5")), crypt(phpversion(), "FGDFGHgdfrtfdfgp[g=df-gdf0g3em8934]"));
+       $tripcode = crypt(crypt($arr[1], crypt("your", "own")), crypt(phpversion(), "hash"));
        $name = $arr[0] . "!" . $tripcode;
      }
    }
